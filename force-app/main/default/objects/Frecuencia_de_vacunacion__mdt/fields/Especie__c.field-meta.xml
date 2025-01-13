@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Especie__c</fullName>
+    <description>Especie de la mascota (Perro o Gato)</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Selecciona la especie para determinar la frecuencia de vacunación.</inlineHelpText>
+    <label>Especie</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Perro</fullName>
+                <default>true</default>
+                <label>Perro</label>
+            </value>
+            <value>
+                <fullName>Gato</fullName>
+                <default>false</default>
+                <label>Gato</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

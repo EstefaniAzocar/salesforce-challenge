@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FechaDeAdopcionValida</fullName>
+    <active>true</active>
+    <description>Esta regla asegura que la fecha de adopción no sea anterior a la fecha actual ni posterior al final del mes en curso.</description>
+    <errorConditionFormula>OR(
+   Fecha_de_adopcion__c &lt; TODAY(),
+   Fecha_de_adopcion__c &gt; DATE(
+      YEAR(TODAY()),
+      MONTH(TODAY()) + 1,
+      1
+   ) - 1
+)</errorConditionFormula>
+    <errorDisplayField>Fecha_de_adopcion__c</errorDisplayField>
+    <errorMessage>La fecha de adopción no puede ser anterior a la fecha de hoy ni posterior al final del mes en curso.</errorMessage>
+</ValidationRule>

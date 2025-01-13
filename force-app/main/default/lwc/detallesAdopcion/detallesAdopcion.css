@@ -1,0 +1,95 @@
+/* Centrar el título y hacerlo más grande */
+.title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Contenedor principal centrado y separado hacia abajo */
+.adoption-container {
+    padding: 40px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    max-width: 700px;
+    height: 100%;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo para los párrafos dentro de .details */
+.details p {
+    font-size: 24px;
+    color: #4a4949;
+    line-height: 1.8;
+    margin: 10px 0;
+    padding-left: 40px;
+}
+
+/* Resaltar los textos en negrita */
+.details p strong {
+    color: #000;
+}
+
+/* Contenedor del botón */
+.button-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* Estilo para el botón */
+.update-button {
+    background-color: #0070d2;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 6px;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+/* Cambio de color al pasar el mouse */
+.update-button:hover {
+    background-color: #005fb3;
+}
+
+.sello-certificado {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #dcdcdc; /* Sutil separación visual */
+}
+
+.certificado-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    border-radius: 50%; /* Hacer la imagen del certificado circular */
+}
+
+/* Asegurarse de que el contenedor principal sea flexible y se adapte a la pantalla */
+@media screen and (max-width: 768px) {
+    .adoption-container {
+        padding: 20px;
+    }
+    .title {
+        font-size: 28px;
+    }
+    .details p {
+        font-size: 20px;
+        padding-left: 20px;
+    }
+    .update-button {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+    .certificado-image {
+        width: 120px;
+        height: 120px;
+    }
+}

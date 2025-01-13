@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Alerta para notificar que la adopción ha sido rechazada</description>
+        <name>Notificacion_Adopcion_Rechazada</name>
+        <label>Notificación Adopción Rechazada</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <actionName>Adopcion__c.Notificacion_Adopcion_Rechazada</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <description>Envía un correo electrónico de notificación cuando el estado de la adopción cambia.</description>
+        <name>Notificacion_de_cambio_de_estado_de_adopcion</name>
+        <label>Notificación de cambio de estado de adopción</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <actionName>Adopcion__c.Notificacion_de_cambio_de_estado_de_adopcion_alerta</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>62.0</apiVersion>
+    <decisions>
+        <name>Aprobado_o_Rechazado</name>
+        <label>¿Aprobado o Rechazado?</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Aprobado</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Estado__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>En aprobación</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Actualizar_Estado_de_Adopcion_a_A_la_espera_de_la_b_squeda_de_mascotas</targetReference>
+            </connector>
+            <label>Aprobado</label>
+        </rules>
+        <rules>
+            <name>Rechazado</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Estado__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Rechazado</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Notificacion_Adopcion_Rechazada</targetReference>
+            </connector>
+            <label>Rechazado</label>
+        </rules>
+    </decisions>
+    <description>Este flujo maneja la notificación y actualización del estado de adopción para los registros de adopción, tanto en aprobación como rechazados</description>
+    <environments>Default</environments>
+    <interviewLabel>Notificación de Estado de Adopción {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Notificación de Estado de Adopción</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Actualiza el estado a A la espera de la búsqueda de mascotas. Cuando el estado sea aprobado</description>
+        <name>Actualizar_Estado_de_Adopcion_a_A_la_espera_de_la_b_squeda_de_mascotas</name>
+        <label>Actualizar Estado de Adopción a A la espera de la búsqueda de mascotas</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>Notificacion_de_cambio_de_estado_de_adopcion</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Estado__c</field>
+            <value>
+                <stringValue>A la espera de la búsqueda de mascotas</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Aprobado_o_Rechazado</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Estado__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>En aprobación</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Estado__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Rechazado</stringValue>
+            </value>
+        </filters>
+        <object>Adopcion__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

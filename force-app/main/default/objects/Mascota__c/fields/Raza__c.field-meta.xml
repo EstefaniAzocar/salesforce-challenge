@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Raza__c</fullName>
+    <description>Campo para seleccionar la raza de la mascota</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Selecciona la raza de la mascota según su especie.</inlineHelpText>
+    <label>Raza</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Especie__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Mestizo</fullName>
+                <default>false</default>
+                <label>Mestizo</label>
+            </value>
+            <value>
+                <fullName>Caniche</fullName>
+                <default>false</default>
+                <label>Caniche</label>
+            </value>
+            <value>
+                <fullName>Siamés</fullName>
+                <default>false</default>
+                <label>Siamés</label>
+            </value>
+            <value>
+                <fullName>Persa</fullName>
+                <default>false</default>
+                <label>Persa</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Perro</controllingFieldValue>
+            <valueName>Mestizo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Perro</controllingFieldValue>
+            <valueName>Caniche</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gato</controllingFieldValue>
+            <valueName>Siamés</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gato</controllingFieldValue>
+            <valueName>Persa</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

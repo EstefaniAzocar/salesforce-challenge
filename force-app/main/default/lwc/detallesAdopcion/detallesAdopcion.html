@@ -1,0 +1,27 @@
+<template>
+    <lightning-card>
+        <h1 class="title">Detalles de la Adopción</h1>
+
+        <div class="adoption-container">
+            <!-- Mostrar detalles de la adopción -->
+            <template if:true={adopcion}>
+                <div class="details">
+                    <p><strong>Nombre de Adopción:</strong> {adopcion.Name}</p>
+                    <p><strong>Estado:</strong> {adopcion.Estado__c}</p>
+                    <p><strong>Nombre de Mascota:</strong> {adopcion.Mascota__r.Name}</p>
+                    <p><strong>Raza:</strong> {adopcion.Mascota__r.Raza__c}</p>
+                    <p><strong>Fecha de Adopción:</strong> {adopcion.Fecha_de_adopcion__c}</p>
+                </div>
+            </template>
+
+            <!-- Sello de Certificado (solo se muestra si la adopción está finalizada) -->
+            <template if:true={isAdopcionComplete}>
+                <div class="sello-certificado">
+                    <img src="https://your-certificado-image-url" alt="Certificado" class="certificado-image"/>
+                    <p><strong>¡Certificado de Adopción!</strong></p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fecha_de_la_proxima_vacunacion__c</fullName>
+    <description>Fecha en la que está programada la próxima vacunación de la mascota</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Ingrese la fecha en la que se espera la próxima vacunación de la mascota.</inlineHelpText>
+    <label>Fecha de la próxima vacunación</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

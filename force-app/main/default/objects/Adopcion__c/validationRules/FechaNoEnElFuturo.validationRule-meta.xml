@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FechaNoEnElFuturo</fullName>
+    <active>true</active>
+    <description>Esta regla de validación asegura que la fecha de adopción no sea en el futuro</description>
+    <errorConditionFormula>Fecha_de_adopcion__c &gt; TODAY()</errorConditionFormula>
+    <errorDisplayField>Fecha_de_adopcion__c</errorDisplayField>
+    <errorMessage>La fecha de adopción no puede ser futura. Por favor, ingresa una fecha válida</errorMessage>
+</ValidationRule>

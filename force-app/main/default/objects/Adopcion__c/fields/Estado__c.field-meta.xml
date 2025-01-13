@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estado__c</fullName>
+    <description>Indica el estado de la adopción de una mascota.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Selecciona el estado actual de la adopción de la mascota.</inlineHelpText>
+    <label>Estado</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Abierto</fullName>
+                <default>false</default>
+                <label>Abierto</label>
+            </value>
+            <value>
+                <fullName>En aprobación</fullName>
+                <default>false</default>
+                <label>En aprobación</label>
+            </value>
+            <value>
+                <fullName>A la espera de la búsqueda de mascotas</fullName>
+                <default>false</default>
+                <label>A la espera de la búsqueda de mascotas</label>
+            </value>
+            <value>
+                <fullName>Finalizada</fullName>
+                <default>false</default>
+                <label>Finalizada</label>
+            </value>
+            <value>
+                <fullName>Rechazado</fullName>
+                <default>false</default>
+                <label>Rechazado</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
